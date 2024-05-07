@@ -6,11 +6,11 @@
 /*   By: csouita <csouita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:33:40 by csouita           #+#    #+#             */
-/*   Updated: 2024/04/30 16:14:40 by csouita          ###   ########.fr       */
+/*   Updated: 2024/05/07 22:41:07 by csouita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 void	handle_bits(int sig, siginfo_t *info, void *context)
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: csouita <csouita@student.42.fr>            +#+  +:+       +#+         #
+#    By: mboumlik <mboumlik@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 21:09:48 by csouita           #+#    #+#              #
-#    Updated: 2024/04/01 17:33:05 by csouita          ###   ########.fr        #
+#    Updated: 2024/05/06 22:08:34 by mboumlik         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,5 +40,4 @@ clean:
 fclean: clean
 	rm -rf $(CLIENT) $(SERVER) $(CLIENT_BONUS) $(SERVER_BONUS)
 
-re: fclean all bonus
-.SECONDARY :
+re: fclean all bonus 

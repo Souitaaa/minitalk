@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csouita <csouita@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mboumlik <mboumlik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:59:02 by csouita           #+#    #+#             */
-/*   Updated: 2024/04/30 17:11:51 by csouita          ###   ########.fr       */
+/*   Updated: 2024/05/06 22:21:06 by mboumlik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	send_bits(int pid, char *str)
 {
 	int		shift;
 	size_t	i;
+	int		err;
 
 	i = 0;
 	while (str[i])
@@ -24,9 +25,14 @@ void	send_bits(int pid, char *str)
 		while (shift >= 0)
 		{
 			if ((str[i] >> shift) & 1)
-				kill(pid, SIGUSR1);
+				err = kill(pid, SIGUSR1);
 			else
-				kill(pid, SIGUSR2);
+				err = kill(pid, SIGUSR2);
+			if (err == -1)
+			{
+				printf("wrong pid\n");
+				exit(1);
+			}
 			shift--;
 			usleep(150);
 		}
@@ -43,6 +49,8 @@ int	main(int argc, char *argv[])
 	{
 		while (argv[1][i])
 		{
+			if (argv[1][i] == '+')
+				i++;
 			if (!ft_isdigit(argv[1][i]))
 			{
 				write(1, "pid is invalid", 15);
